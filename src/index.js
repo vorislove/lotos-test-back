@@ -5,13 +5,13 @@ const PORT = process.env.PORT || 80;
 
 app.use(cors());
 
-const delay = 119;
+const delay = 119000;
 let decDelay = delay;
 
 function subtractTime() {
 	setInterval(() => {
 		if (decDelay > 0) {
-			decDelay = decDelay - 1;
+			decDelay = decDelay - 1000;
 		} else if (decDelay == 0) {
 			decDelay = delay;
 			const foundIndex = users.findIndex((user) => user.move === true);
