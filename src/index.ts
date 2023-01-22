@@ -15,7 +15,6 @@ function subtractTime() {
 			decDelay = decDelay - 1000;
 		} else if (decDelay == 0) {
 			decDelay = delay;
-			console.log(decDelay);
 			const foundIndex = users.findIndex((user) => user.move === true);
 			users[foundIndex].move = false;
 			if (users.length - 1 === foundIndex) {
