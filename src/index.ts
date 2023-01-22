@@ -4,11 +4,7 @@ const cors = require('cors');
 const app: Express = express();
 const PORT = process.env.PORT || 80;
 
-let corsOptions = {
-	origin: ['http://localhost:3000']
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 const delay = 119000;
 let decDelay = delay;

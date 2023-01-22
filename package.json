@@ -7,7 +7,8 @@
     "watch": "nodemon --watch './**/*.{ts}' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
     "client": "npm run start --prefix client",
     "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" \"npm run client\""
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" \"npm run client\"",
+    "build": "babel src -d dist"
   },
   "keywords": [
     "test-timer"
