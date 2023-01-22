@@ -7,10 +7,7 @@ const express_1 = __importDefault(require("express"));
 const cors = require('cors');
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 80;
-let corsOptions = {
-    origin: ['http://localhost:3000']
-};
-app.use(cors(corsOptions));
+app.use(cors());
 const delay = 119000;
 let decDelay = delay;
 function subtractTime() {
@@ -20,6 +17,7 @@ function subtractTime() {
         }
         else if (decDelay == 0) {
             decDelay = delay;
+            console.log(decDelay);
             const foundIndex = users.findIndex((user) => user.move === true);
             users[foundIndex].move = false;
             if (users.length - 1 === foundIndex) {
