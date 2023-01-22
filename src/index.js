@@ -1,18 +1,17 @@
-import express, { Express, Request, Response } from 'express';
-
+import express from 'express';
 const cors = require('cors');
-const app: Express = express();
+const app = express();
 const PORT = process.env.PORT || 80;
 
 app.use(cors());
 
-const delay = 119000;
+const delay = 119;
 let decDelay = delay;
 
 function subtractTime() {
 	setInterval(() => {
 		if (decDelay > 0) {
-			decDelay = decDelay - 1000;
+			decDelay = decDelay - 1;
 		} else if (decDelay == 0) {
 			decDelay = delay;
 			const foundIndex = users.findIndex((user) => user.move === true);
@@ -28,11 +27,11 @@ function subtractTime() {
 
 subtractTime();
 
-app.get('/timer', (req: Request, res: Response) => {
+app.get('/timer', (req, res) => {
 	res.status(201).json({ timeLeft: decDelay });
 });
 
-app.get('/users', (req: Request, res: Response) => {
+app.get('/users', (req, res) => {
 	try {
 		res.status(200).json(users);
 	} catch {
@@ -42,7 +41,7 @@ app.get('/users', (req: Request, res: Response) => {
 
 app.listen(PORT, () => console.log(`Сервер запущен на порте ${PORT}`));
 
-const users: IUser[] = [
+const users = [
 	{
 		id: 'dvhfso',
 		name: 'User 1',
@@ -59,9 +58,3 @@ const users: IUser[] = [
 		move: false
 	}
 ];
-
-interface IUser {
-	id: string;
-	name: string;
-	move: boolean;
-}
